@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { useZxing } from "react-zxing";
 
 const RemitoBarcodeScanner = ({ setBarcodeScanned }) => {
@@ -22,12 +22,20 @@ const RemitoBarcodeScanner = ({ setBarcodeScanned }) => {
   }, [torch, barcode, setBarcodeScanned]);
 
   return (
-    <>
-      <video className="aspect-square" ref={ref} style={{ height: "10%" }} />
-      <button type="button" onClick={getBarcode}>
+    <div className="flex flex-col items-center">
+      <video
+        className="aspect-square mb-4 border border-gray-300 rounded"
+        ref={ref}
+        style={{ height: "200px" }}
+      />
+      <button
+        type="button"
+        onClick={getBarcode}
+        className="bg-blue-500 text-white p-2 rounded w-full max-w-xs"
+      >
         Escanear
       </button>
-    </>
+    </div>
   );
 };
 
